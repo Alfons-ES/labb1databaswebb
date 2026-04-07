@@ -56,7 +56,7 @@ app.get('/delete/:id', (req, res) => { //id är parametern i urlen, om vi vill t
         if (err) {
             console.error(err);
         }
-        res.redirect('/');
+        res.redirect('/');//laddar om sidan
     });
 });
 

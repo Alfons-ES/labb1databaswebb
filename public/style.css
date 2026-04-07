@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: orange;
+    background-color: rgb(38, 38, 38);
 }
 
 header {
@@ -9,6 +9,8 @@ header {
     background-color: rgb(235, 235, 235);
     padding-top: 10px;
     border-bottom: 1px solid gray;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
 }
 
 h1 {
