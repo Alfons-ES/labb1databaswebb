@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const mysql = require('mysql2');
 
 const app = express();
@@ -20,13 +19,13 @@ const db = mysql.createConnection({
 db.connect(err => {
     if (err) console.error(err);
     else console.log('Ansluten');
-});
+}); //ansluter till dbn
 
 // hem sidan
 app.get('/', (req, res) => {
     db.query('SELECT * FROM courses ORDER BY id DESC', (err, courses) => {
         if (err) throw err;
-        res.render('index', { courses });
+        res.render('index', { courses }); //kommer loopa igenom dessa i index.ejs för att skriv ut dom till ett formulär
     });
 });
 
@@ -39,13 +38,13 @@ app.get('/add', (req, res) => {
 app.post('/add', (req, res) => { //körs när man klickar spara kurs
     const { coursecode, coursename, syllabus, progression } = req.body; //datan användaren skrev i formuläret 
 
-    const sql = 'INSERT INTO courses (coursecode, coursename, syllabus, progression) VALUES (?, ?, ?, ?)';//? är placeholders
+    const sql = 'INSERT INTO courses (coursecode, coursename, syllabus, progression) VALUES (?, ?, ?, ?)';//? är placeholders som sen fylls i med , [coursecode, coursename, syllabus, progression],
 
     db.query(sql, [coursecode, coursename, syllabus, progression], (err) => { //skapar ny rad i courses
         if (err) {
             console.error(err);
         }
-        res.redirect('/');
+        res.redirect('/'); //laddar om sidan
     });
 });
 
