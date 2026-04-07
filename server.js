@@ -49,9 +49,9 @@ app.post('/add', (req, res) => { //körs när man klickar spara kurs
 });
 
 // Radera kurs
-app.get('/delete/:id', (req, res) => {
+app.get('/delete/:id', (req, res) => { //id är parametern i urlen, om vi vill ta bort 5e kursen kommer 5 skickas med
     const id = req.params.id;
-    db.query('DELETE FROM courses WHERE id = ?', [id], (err) => {
+    db.query('DELETE FROM courses WHERE id = ?', [id], (err) => { //? är här också en placeholder för idet, om id är 12 kommer databasen få DELETE FROM courses WHERE id = 12
         if (err) {
             console.error(err);
         }
