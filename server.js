@@ -3,9 +3,10 @@ const mysql = require('mysql2');
 
 const app = express();
 
-app.listen(3000);
+app.listen(3001);
 
 app.use(express.urlencoded({ extended: true })); //ser till att reqbody fylls från formuläret
+app.use(express.static('public')); //ser till att styling fungerar
 app.set('view engine', 'ejs');
 
 // Databasanslutning

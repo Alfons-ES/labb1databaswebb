@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    background-color: orange;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    background-color: rgb(235, 235, 235);
+    padding-top: 10px;
+    border-bottom: 1px solid gray;
+}
+
+h1 {
+    margin: 2;
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+
+}
+
+nav {
+    padding-bottom: 10px;
+}
+
+table {
+    width: 90%;
+    border-collapse: collapse;
+    background: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+form {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+#about {
+    margin: 10px;
+    background-color: white;
+    padding: 20px;
+}
