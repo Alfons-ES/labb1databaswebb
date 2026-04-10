@@ -39,6 +39,26 @@ app.get('/add', (req, res) => {
 app.post('/add', (req, res) => { //körs när man klickar spara kurs
     const { coursecode, coursename, syllabus, progression } = req.body; //datan användaren skrev i formuläret 
 
+    // kontroll att fälten inte är tomma
+    if (!coursecode || !coursename || !syllabus || !progression) {
+        return res.send(`
+                <script>
+                alert("Alla fält måste fyllas i");
+                window.location.href = "/add";
+                </script>
+            `);
+    }
+
+    // kontroll att progressionen är A eller B
+    if (progression.toUpperCase() !== 'A' && progression.toUpperCase() !== 'B') {
+        return res.send(`
+                <script>
+                alert("Progression får bara vara A eller B");
+                window.location.href = "/add";
+                </script>
+            `);
+    }
+
     const sql = 'INSERT INTO courses (coursecode, coursename, syllabus, progression) VALUES (?, ?, ?, ?)';//? är placeholders som sen fylls i med , [coursecode, coursename, syllabus, progression],
 
     db.query(sql, [coursecode, coursename, syllabus, progression], (err) => { //skapar ny rad i courses
